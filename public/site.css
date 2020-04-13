@@ -1,0 +1,51 @@
+p {
+	color:#B5651D;
+	font-weight:bold;
+	font-style: italic;
+}
+
+h1{
+	color: brown;
+	font-weight: bolder;
+ 
+}
+
+#la{
+    color:#B5651D;
+	font-weight:bold;
+	font-style: italic
+}
+
+#titl {
+  font-style: oblique;
+}
+
+#pop
+    {
+      width: 60px;
+      height: 30px;
+      background-color: rgb(172, 164, 164);
+      color: black;
+    }
+
+    #pop:hover
+    {
+      background-color: orange;
+      color:black; 
+	}    
+	
+.success{
+	color: #28a745;
+}
+
+.failure{
+	color:#dc3545;
+}
+
+a{
+  color: darkblue;
+}
+
+.haa{
+  font-weight: bold;
+}
