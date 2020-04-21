@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Palindrome Results!</title>
+    <link href="/site.css" rel="stylesheet">
+</head>
+<body class="bodyClass">
+    <div class="content">
+        <h1>The Palindrome Results!</h1>
+        <main>
+        <span>Your input:</span>       
+         <p>
+                {{#if result}}
+                <span class="success">{{text-to-test}}</span>
+                {{else}}
+                <span class="failure">{{text-to-test}}</span>
+                {{/if}}
+            </p>
+            <p>
+                {{#if result}}
+                    This is a palindrome!
+                {{else}}
+                    This is not a palindrome!
+                {{/if}}
+            </p>
+        </main>
+    </div>
+</body>
+</html>
+

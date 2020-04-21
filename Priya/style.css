@@ -1,76 +1,3 @@
-/* ul li .radioMain span:nth-child(2n+1):hover{
-      color:magenta;
-  } */
-
-  .Question{
-      margin-left: 1%;
-  }
-.expired{
-    color: red;
-    font-weight: bold;
-    font-size: medium;
-    
-}
- ul.ulClass li{
-      display:inline-block;
-      width:49%;
-  }
-
-  #clockdiv{ 
-    font-family: sans-serif; 
-    color: #fff; 
-    display: inline-block; 
-    vertical-align: middle;
-    font-weight: 100; 
-    text-align: center; 
-    font-size: 30px; 
-    visibility:visible;
-} 
-.smalltext{ 
-    padding-top: 5px; 
-    font-size: 16px; 
-} 
-.divblock{
-    /* height: 50px; */
-    padding: 2px;
-     margin: 1%; 
-     width: 50px; 
-     /* display: inline-block; 
-    vertical-align: middle; */
-    background-color:#77cc6d ;
-    opacity: .75;
-}
-.btn-primary{
-    color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
-    opacity: .75;
-
-}
-.form-control:focus {
-    border-color: #77cc6d;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}
-.btn-primary:hover{
-    color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
-}
-.btn-primary:not(:disabled):not(.disabled):active,
-.show>.btn-primary.dropdown-toggle{
-    color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
-}
-.divButton{
-    margin-top: 20px;
-}
-.mainDiv{
-    margin-top: 20px;
-}
-.navBar{
-    background-color: lightskyblue;
-}
 .button{border-radius: 3px;
     padding: 8px 15px;
     font-size: 12px;
@@ -182,23 +109,7 @@ header h2{
 }
 h4{
     color: #333;
-    font-size: 15px;
 }
-
-#clockdiv{ 
-    font-family: sans-serif; 
-    color: #fff; 
-    display: inline-block; 
-    font-weight: 100; 
-    text-align: center; 
-    font-size: 30px; 
-    
-} 
-
-.smalltext{ 
-    padding-top: 5px; 
-    font-size: 16px; 
-} 
 .Answer{
     border-bottom: 1.5px solid #ccc;
     position: relative;
