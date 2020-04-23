@@ -1,0 +1,25 @@
+{
+  "name": "sockettesting",
+  "version": "1.0.0",
+  "description": "creating socket rooms",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgadkari94/MutliPlayerGame.git"
+  },
+  "author": "Sanket Gadkari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sgadkari94/MutliPlayerGame/issues"
+  },
+  "homepage": "https://github.com/sgadkari94/MutliPlayerGame#readme"
+}
