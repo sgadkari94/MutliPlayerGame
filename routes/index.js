@@ -1,19 +1,12 @@
-const questionRoutes = require("./questions");
-const path = require('path');
+const loginRoutes = require('./login');
+const mpgameRoutes = require('./mpgame')
+const constructorMethod = (app) => { 
+   
+    app.use('', loginRoutes);
+    app.use('', mpgameRoutes);
 
-const constructorMethod = app => {
-
-app.use("/dashboard", questionRoutes);
-
-app.use("/dashboard", questionRoutes);
-
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('public/index.html'));
-});
-
-  app.use("*", (req, res) => {
-    res.sendStatus(404);
-  });
-};
-
+    app.use('*', (req, res) => {   
+        res.status(404).json({ error: 'Not found' });  
+    }); 
+};  
 module.exports = constructorMethod;
