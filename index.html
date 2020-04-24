@@ -1,14 +1,110 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel = "stylesheet" href="/public/site.css">
+
+
+
+
+</head>
     <h1 id="h1">Hello world</h1>
     <body>
+
+
+
+
+
+
+        <style>
+
+    form{
+        float: left;
+    }        
+    #app{
+        float: right;
+    }
+            body {
+      font-family: sans-serif;
+      display: grid;
+      height: 100vh;
+    }
+    
+    .base-timer {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    
+    .base-timer__svg {
+      transform: scaleX(-1);
+    }
+    
+    .base-timer__circle {
+      fill: none;
+      stroke: none;
+    }
+    
+    .base-timer__path-elapsed {
+      stroke-width: 7px;
+      stroke: grey;
+    }
+    
+    .base-timer__path-remaining {
+      stroke-width: 7px;
+      stroke-linecap: round;
+      transform: rotate(90deg);
+      transform-origin: center;
+      transition: 1s linear all;
+      fill-rule: nonzero;
+      stroke: currentColor;
+    }
+    
+    .base-timer__path-remaining.green {
+      color: rgb(65, 184, 131);
+    }
+    
+    .base-timer__path-remaining.orange {
+      color: orange;
+    }
+    
+    .base-timer__path-remaining.red {
+      color: red;
+    }
+    
+    .base-timer__label {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+        </style>
+        <div id="app"></div>
+        <!-- following script tag is for countdown timer-->
+        <script src="scriptfiles.js">
+            </script>
+            
+
+
+
+
+
+
+
+
+
+    <h2> This is a test question </h2>
+<form>
     <input id="btn" type="button" name="send" value="Send" onclick="submitMessage()">
     <input id="msg" type="text" name="message" value="">
     <input type="radio" id="male" name="gender" value="male">
     <label for="male">Male</label><br>
     <input type="radio" id="female" name="gender" value="female">
     <label for="male">Female</label><br>
-
+</form>
     <ol id='attempts'>
 
     </ol>
@@ -41,5 +137,6 @@
             socket.emit('sendmsg',message);
         }
     </script>
+            
 </body>
 </html>

@@ -3,11 +3,12 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
-
+const static = express.static(__dirname + '/public');
+app.use('/public', static);
 var port=8000;
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname+'/index.html')
+    res.render(__dirname+'/index')
     
 });
 
@@ -37,7 +38,7 @@ io.sockets.on('connection',function(socket){
    io.sockets.in(roomno).emit('connectToRoom', roomno);
    console.log(io.nsps['/'].adapter.rooms)
     
-    
+    console.log(__dirname)
     /* 
        // generateroom();
         console.log('1st room created *')
