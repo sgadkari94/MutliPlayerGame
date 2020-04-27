@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const hostgame = require('../gamefunctions/hostgame')
-const joingame = require('../gamefunctions/joingame')
+const joingame = require('../public/joingame')
 var http = require('http')
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
@@ -11,7 +11,7 @@ router.get("/gamebegins", (req, res) => {
 })
 
 var roomno=0;
-io.sockets.on('connection',function(socket){
+io.of('/gamebegins').on('connection',function(socket){
     console.log('a new client connected')
     
     if(io.nsps['/'].adapter.rooms[roomno] && io.nsps['/'].adapter.rooms[roomno].length > 1)

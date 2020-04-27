@@ -13,33 +13,16 @@
         
     </div>
 
-    
+    <script src="/socket.io/socket.io.js"></script>
     <script type='text/javascript' src="/socket.io/socket.io.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="gamefunctions/joingame.js"></script>
     <script>
-        var btn = document.querySelector('#btn');
-        var socket = io.connect()
-        socket.on('connectToRoom',function(data) {
-            document.getElementById('h1').innerHTML = data;
-            
-         });
-        $(document).ready(function(){
-            socket.on('updateHeader',function(data){
-                let textInput = document.getElementById('msg')
-                let radio = document.getElementById('male')
-                let test = document.getElementById('attempts')
-                let li = document.createElement('li')
-                
-                li.innerHTML= data
-                test.appendChild(li);
-                document.getElementById('li').innerHTML= data;
-                
-            });
-        });
+       
         function creategame(){
 
-            var message= $('#msg').val();
-            socket.emit('sendmsg',message);
+            
+            alert("create game was called");
         }
     </script>
 </html>
