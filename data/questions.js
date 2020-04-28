@@ -2,6 +2,7 @@ const collection = require('../config/mongoCollections');
 const quesCollection = collection.question;
 const ansCollection = collection.answer;
 const ObjectId = require('mongodb').ObjectID;
+const playerAnsCollection = collection.playerAnswers;
 
 
 async function getQuestions(){ 
@@ -30,9 +31,29 @@ async function getAnswers(id){
     return answerData;
 }
 
+async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues ){
+    if(questionId || answerID || isSiglePlayer){
+    if(answerID !=null){
+
+    const playerAnsCol = await playerAnsCollection();
+
+    let newAnw={
+        questionId : questionId,
+        answerID : answerID,
+        isSiglePlayer : isSiglePlayer
+    };
+    const insertInfo = await playerAnsCol.insertOne(newAnw);
+    if (insertInfo.insertedCount === 0) throw 'Could not add ans';
+    //getQuestionsbyId(nextQues);
+       }
+
+    }
+}
+
 module.exports = {
     getQuestions,
     getAnswers,
-    getQuestionsbyId
+    getQuestionsbyId,
+    saveAnswers
     
 }

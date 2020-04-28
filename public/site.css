@@ -1,19 +1,19 @@
-/* ul li .radioMain span:nth-child(2n+1):hover{
-      color:magenta;
-  } */
+a{
+    color: #fff;
+}
 
-  .Question{
+.Question{
       margin-left: 1%;
   }
 .expired{
     color: red;
     font-weight: bold;
-    font-size: medium;
+    font-size:large;
     
 }
  ul.ulClass li{
-      display:inline-block;
-      width:49%;
+      display:inline-block !important ;
+      width:49% !important;
   }
 
   #clockdiv{ 

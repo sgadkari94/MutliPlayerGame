@@ -15,6 +15,7 @@ const getCollectionFn = collection => {
 
 module.exports = {   
   question: getCollectionFn("Questions"),
-  answer:getCollectionFn("Answers")
+  answer:getCollectionFn("Answers"),
+  playerAnswers:getCollectionFn("PlayerAnswers")
 };
 

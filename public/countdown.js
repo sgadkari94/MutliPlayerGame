@@ -4,9 +4,12 @@ let m = document.getElementById("minute");
 let s = document.getElementById("second");
 let expired = document.getElementById('expired');
 let clock = document.getElementById('clockdiv');
+let submitBtn= document.getElementById('btnSubmit');
+let btnNewGame = document.getElementById('btnNewGame');
 const countdown = window.addEventListener('load', (event) => {
 // var deadline = new Date("April 19, 2020 21:10:05").getTime(); 
-var deadline = new Date(Date.now() + (1 * 60 * 1000));
+// var deadline = new Date(Date.now() + (1 * 60 * 1000));
+var deadline = new Date(Date.now() + (1 * 10 * 1000));
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
 var t = deadline - now; 
@@ -23,13 +26,16 @@ s.innerText = seconds
         clearInterval(x); 
         document.getElementById("clockdiv").style.visibility = "hidden";
         expired.hidden=false;
-        expired.innerText = "Your time is Over!!"
-
-    } 
+        expired.innerText = "Your time is Over for this question, now try next!!"
+        myForm.submit();        
+      } 
 
 }, 1000); 
 })
 
+btnNewGame.addEventListener('click',(event)=>{
+location.reload();
+})
   
   setTimeout(countdown, 1000);
 
