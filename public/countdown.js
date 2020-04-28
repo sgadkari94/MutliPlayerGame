@@ -9,7 +9,7 @@ let btnNewGame = document.getElementById('btnNewGame');
 const countdown = window.addEventListener('load', (event) => {
 // var deadline = new Date("April 19, 2020 21:10:05").getTime(); 
 // var deadline = new Date(Date.now() + (1 * 60 * 1000));
-var deadline = new Date(Date.now() + (1 * 10 * 1000));
+var deadline = new Date(Date.now() + (1 * 30 * 1000));
 var x = setInterval(function() { 
 var now = new Date().getTime(); 
 var t = deadline - now; 
