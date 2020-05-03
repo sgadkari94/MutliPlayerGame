@@ -1,5 +1,6 @@
 const questionRoutes = require("./questions");
 const path = require('path');
+const xss = require("xss");
 
 const constructorMethod = app => {
 

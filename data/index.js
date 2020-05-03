@@ -1,6 +1,8 @@
 const questionData = require("./questions");
+const answerData = require("./answers");
 
 
 module.exports = {
-  questions: questionData
+  questions: questionData,
+  answers:answerData
 };

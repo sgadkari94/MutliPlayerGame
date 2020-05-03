@@ -64,8 +64,8 @@
                     <span class="pull-left labelBorder">Question {{question_no}}</span>
                     <div class="clearfix"></div>
                     <h5>
-                    <input type="hidden" id="questionText" name="question" value={{question.Question_id}}>
-                     <label> Q. {{question.Question}}</label>
+                    <input type="hidden" id="questionText" name="question" value={{question.question_id}}>
+                     <label> Q. {{question.question}}</label>
                     </h5>  
                     <div class="Answer">
                         <span>Answer Choices</span>
@@ -74,7 +74,7 @@
                     <ul class="ulClass">
                         	{{#each answers}}
                         <li class="liClass">
-                            <label class="radioMain">{{this.Answer}}
+                            <label class="radioMain">{{this.answer}}
                                 {{!-- <input class="rdClass" type="radio" checked="checked" name="selcRadio"  --}}
                                 <input class="rdClass" type="radio" name="selcRadio" value={{this._id}}>
                                 <span class="checkmark"></span>

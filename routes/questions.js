@@ -3,17 +3,19 @@ const router = express.Router();
 const data = require("../data");
 const questionData = data.questions;
 const path = require('path');
+const xss = require("xss");
 
 let totalRequests = 0;
 router.get("/", async (req, res) => {
   try {
-  if(totalRequests <= 6)
+
+  const totalReq = await questionData.getQuestions();
+
+  console.log(totalReq.length);
+  if(totalRequests <= totalReq.length-1)
   {
-    console.log("in questions");
     const question = await questionData.getQuestionsbyId(totalRequests);
-   // const question = await questionData.getQuestions();
-    const answer = await questionData.getAnswers(question.Question_id);
-    // res.render('MultiPlayerGame/dashboard',{ 'question': question[0], 'answers':answer, 'question_no':1});
+    const answer = await questionData.getAnswers(question.question_id);
     res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1});
     totalRequests ++;
   }
@@ -28,13 +30,15 @@ router.get("/", async (req, res) => {
 //let totalRequests = 0;
 router.post("/", async (req, res,next) => {
     try {
-      //totalRequests ++;
-      if(totalRequests <= 6){
-      constQuesId = req.body.question;
-      constAnsId = req.body.selcRadio;
+      const totalReq = await questionData.getQuestions();
+      if(totalRequests <= totalReq.length-1)
+      //if(totalRequests <= 6)
+      {
+      constQuesId = xss(req.body.question);
+      constAnsId = xss(req.body.selcRadio);
       const saveAns = await questionData.saveAnswers(constQuesId,constAnsId,true,totalRequests);
       const question = await questionData.getQuestionsbyId(totalRequests);
-      const answer = await questionData.getAnswers(question.Question_id);
+      const answer = await questionData.getAnswers(question.question_id);
       res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1});
       totalRequests++;
       }
