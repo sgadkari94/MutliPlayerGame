@@ -46,7 +46,7 @@ async function getAnswers(id){
 
 async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues ){
     if(questionId || answerID || isSiglePlayer){
-    if(answerID !=null){
+    //if(answerID !=null){
 
     const playerAnsCol = await playerAnsCollection();
 
@@ -57,7 +57,7 @@ async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues ){
     };
     const insertInfo = await playerAnsCol.insertOne(newAnw);
     if (insertInfo.insertedCount === 0) throw 'Could not add ans';
-       }
+    //   }
 
     }
 }

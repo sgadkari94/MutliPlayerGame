@@ -1,3 +1,8 @@
+.error{
+    color: red;
+    font-weight: bold;
+}
+
 a{
     color: #fff;
 }

@@ -34,7 +34,7 @@ s.innerText = seconds
 })
 
 btnNewGame.addEventListener('click',(event)=>{
-location.reload();
+//location.reload();
 })
   
   setTimeout(countdown, 1000);
