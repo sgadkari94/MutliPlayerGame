@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Result</title>
-    <link href="/site.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="site.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -20,7 +22,7 @@
                             <ul class="ulClass">
                               {{#each data}}
                                 <li class="liClass">
-                                   <span>Question Number: {{this.questionId}} Question Level: {{this.level}}Marks: {{this.marks}}
+                                   <span><i class="glyphicon glyphicon-ok"></i></span><span>   Question Number: {{this.questionId}} Question Level: {{this.level}}Marks: {{this.marks}}
                                    </span>
                                  </li>
                                 {{/each}}

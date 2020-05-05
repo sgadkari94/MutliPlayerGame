@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Demo</title>
+<title>game dashboard</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="site.css" type="text/css" rel="stylesheet" />
@@ -28,8 +28,16 @@
              <button type="button" id="btnNewGame" type="submit" class="button create"><span class="glyphicon glyphicon-plus-sign"></span>Begin New Quiz</button>
              <ul class="leftnav">
                  <li><span><i class="glyphicon glyphicon-user"></i></span>Name:UserName</li>
-                 <li><span><i class="glyphicon glyphicon-asterisk"></i></span>Playing:1 Time</li>
-                 <li><span><i class="glyphicon glyphicon-list-alt"></i></span>Previous Score:0</li>
+                 <li><span><i class="glyphicon glyphicon-asterisk"></i></span>New Playe: {{firstTimePlayer}}</li>
+                 {{!-- <li><span><i class="glyphicon glyphicon-list-alt"></i></span>Previous Score:0</li> --}}
+             </ul>
+             <ul class="leftnav">
+                 <li class="preScore"><span><i class="glyphicon glyphicon-pencil"></i></span>All Previous Score</li>
+                    {{#each gameDetails}}
+                    <li>
+                        <span>Date: {{this.gameDay}} Score: {{this.totalMarks}}</span>
+                    </li>
+                    {{/each}}
              </ul>
             
         </div>

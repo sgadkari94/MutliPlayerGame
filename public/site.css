@@ -3,6 +3,11 @@
     font-weight: bold;
 }
 
+.preScore{
+    color: rgba(40, 167, 69, 0.25);
+    font-weight: bold;
+}
+
 a{
     color: #fff;
 }

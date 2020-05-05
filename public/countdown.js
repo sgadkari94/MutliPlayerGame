@@ -34,6 +34,7 @@ s.innerText = seconds
 })
 
 btnNewGame.addEventListener('click',(event)=>{
+  myForm.submit();
 //location.reload();
 })
   
