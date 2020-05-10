@@ -104,8 +104,8 @@ router.post("/", async (req, res,next) => {
       else{
         const getResult = await resultData.getResult(player);
         console.log(getResult);
-        // const totalMarks = await resultData.countTotalMarks(player);
-        const totalMarks  = 0;
+        const totalMarks = await resultData.countTotalMarks(player);
+       // const totalMarks  = 0;
         console.log(totalMarks);
         totalRequests = 0;
         req.session.destroy();

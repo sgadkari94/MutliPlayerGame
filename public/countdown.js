@@ -9,7 +9,7 @@ let btnNewGame = document.getElementById('btnNewGame');
 let quesNo = document.getElementById('quseNo').value;
 const countdown = window.addEventListener('load', (event) => {
   if(quesNo < 3){
-     alert(quesNo);
+    // alert(quesNo);
 // var deadline = new Date("April 19, 2020 21:10:05").getTime(); 
 // var deadline = new Date(Date.now() + (1 * 60 * 1000));
 var deadline = new Date(Date.now() + (1 * 30 * 1000));
@@ -30,7 +30,7 @@ s.innerText = seconds
         expired.hidden=false;
         expired.innerText = "Your time is Over for this question, now try next!!"
         myForm.submit(); 
-        alert("reload");       
+        //alert("reload");       
       } 
 
 }, 1000); 
