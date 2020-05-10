@@ -10,8 +10,7 @@
 
 <body>
 <header>
-      {{!-- <h2>Logo</h2>  --}}
-    <h2><p><a href="http://www.stevens.edu">Stevens</a></p></h2>
+     <img class="imgSize" src="/image/cool-geek-logo-vector-2088780.png" alt="imgDescription">
 </header>
 <div class="container-fluid">
     <div class="row">
@@ -21,11 +20,11 @@
                     <span class="UserIco"><i class="glyphicon glyphicon-user" ></i></span>
                 </div>
                 <div class="col-md-9">
-                    <label>Welcome UserName</label>
-                    <button type="button" class="button submit">Edit Profile</button>
+                    <label>Welcome {{user}}</label>
+                    {{!-- <button type="button" class="button submit">Edit Profile</button> --}}
                 </div>
              </div>
-             <button type="button" id="btnNewGame" type="submit" class="button create"><span class="glyphicon glyphicon-plus-sign"></span>Begin New Quiz</button>
+             {{!-- <button type="button" id="btnNewGame" type="submit" class="button create"><span class="glyphicon glyphicon-plus-sign"></span>Begin New Quiz</button> --}}
              <ul class="leftnav">
                  <li><span><i class="glyphicon glyphicon-user"></i></span>Name:UserName</li>
                  <li><span><i class="glyphicon glyphicon-asterisk"></i></span>New Playe: {{firstTimePlayer}}</li>
@@ -48,7 +47,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a href="#" class="thumbnail">
-                            <img src="https://cf.quizizz.com/img/logos/new/logo_placeholder_sm.png">
+                            <img src="https://cf.quizizz.com/img/logos/new/logo_placeholder_sm.png" alt="image description">
                           </a>
                     </div>
                     <div class="col-md-9">
@@ -69,6 +68,7 @@
                  <div class="row">                 
                    <div class="Question">
                     <span class="pull-left labelBorder">Question {{question_no}}</span>
+                    <input type="hidden" id="quseNo" name="quseNo" value={{reqNo}}>
                     <div class="clearfix"></div>
                     <h5>
                     <input type="hidden" id="questionText" name="question" value={{question.question_id}}>

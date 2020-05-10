@@ -10,25 +10,35 @@
 <body>
   <header>
       {{!-- <h2>Logo</h2>  --}}
-    <h2><p><a href="/">Want to play another game.</a></p></h2>
+    {{!-- <h2><p><a href="/">Want to play another game.</a></p></h2> --}}
+     <img class="imgSize" src="/image/cool-geek-logo-vector-2088780.png" alt="imgDescription">
 </header>
     <div class="card">
                  <div class="row">                 
                    <div class="Question">
+                      <form id="resultForm" action="/login" method="GET">
+                     <div class="result">
                     <span class="pull-left labelBorder">Quiz Result</span>
+                     </div>
+                     <div class="newGame">
+                    <form action="/login">
+                      <div class="startGameBtn new"> <button type="submit" class="button submit">Start Your Game</button></div>
+                    </div>
+             <ul class="leftnav">
                     <div class="clearfix"></div>
                          <h5>This is the result of your current quiz</h5>  
                         <div>
                             <ul class="ulClass">
                               {{#each data}}
                                 <li class="liClass">
-                                   <span><i class="glyphicon glyphicon-ok"></i></span><span>   Question Number: {{this.questionId}} Question Level: {{this.level}}Marks: {{this.marks}}
+                                   <span><i class="glyphicon glyphicon-ok"></i></span><span>   Question Number: {{this.questionId}} Question Level: {{this.level}} Marks: {{this.marks}}
                                    </span>
                                  </li>
                                 {{/each}}
                             </ul>
                             <h5>Your total marks: {{totalMarks}}</h5>
                         </div>
+                        </form>
                     </div>
                    </div>
 

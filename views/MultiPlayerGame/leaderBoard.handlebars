@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link href="site.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<header>
+     <img class="imgSize" src="/image/cool-geek-logo-vector-2088780.png" alt="imgDescription">
+</header>
+<div class="card winnersDashboard">
+    <h4>Start Your Game And Test Your Knowledge.You have a chance to make your position.</h4>
+    <form action="/dashboard" method="GET">
+    <div class="startGameBtn"> <button type="submit" class="button submit">Start Your Game</button></div>
+   </form>
+    <ul>
+        {{#each winnerData}}
+            <li class="winnerli">
+                <div class="card winnerList">
+                    <div class="listMain">
+                                <div class="winner"><img src="/image/userImg2.png" alt="" class="userImgSize"></div>
+                                <div class="winnerdetails">
+                                    {{!-- <h4>Rank 1: 1</h4> --}}
+                                    <h5>Name: {{this.playerid}}</h5>
+                                    <h6>Score: {{this.totalMarks}}</h6>
+                                </div>
+                                <div class="trophy"><img src="/image/trophy-img1.png" alt="" class="trophyImgSize"></div>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+</body>
+
+</html>

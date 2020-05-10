@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const exphbs  = require('express-handlebars');
 const configRoutes = require("./routes");
+const session = require('express-session')
 
 app.use(express.json());
 
@@ -12,6 +13,16 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 let totalRequests = 0;
+
+app.use(
+	session({
+		name: 'AuthCookie',
+		secret: "This is a secret.. shhh don't tell anyone",
+		saveUninitialized: true,
+		resave: false
+	})
+);
+
 app.use(async (req, res, next) => {
 	totalRequests++;
 	console.log(totalRequests);

@@ -17,7 +17,8 @@ module.exports = {
   question: getCollectionFn("Questions"),
   answer:getCollectionFn("Answers"),
   playerAnswers:getCollectionFn("PlayerAnswers"),
-  gameSummary:getCollectionFn("gameSummary"),
-  score:getCollectionFn("score")
+  gameSummary:getCollectionFn("GameSummary"),
+  score:getCollectionFn("Score"),
+  player:getCollectionFn("player"),
 }
 

@@ -6,7 +6,7 @@ const playerAnsCollection = collection.playerAnswers;
 
 async function addQuestion(question_id, question, level, answers ){
 
-    if (!question_id || !question || !level || !answers) throw 'input data is provided';
+    if (!question_id || !question || !level || !answers) throw 'input data is not provided';
     const quesVal = await quesCollection();
     let newQuestion = {
         question_id: question_id, 
@@ -16,7 +16,7 @@ async function addQuestion(question_id, question, level, answers ){
     };
 
     const insertInfo = await quesVal.insertOne(newQuestion);
-    if (insertInfo.insertedCount === 0) throw 'Could not add band';
+    if (insertInfo.insertedCount === 0) throw 'Could not add question';
 }
 
 async function getQuestions(){ 
@@ -24,8 +24,8 @@ async function getQuestions(){
         let mysort = { question_id: 1 };  
         let index = 0;
         const questionData = await quesVal.find({}).sort(mysort).toArray();
-        //bandDetail.find
-        if (questionData === null) throw 'No band with that id';      
+        //questionDetail.find
+        if (questionData === null) throw 'No question with that id';      
         return questionData;
 }
 
@@ -39,12 +39,12 @@ async function getAnswers(id){
     let mysort = { _id: 1 };  
     let index = 0;
     const answerData = await ansVal.find({question_id : id}).sort(mysort).toArray();
-    //bandDetail.find
-    if (answerData === null) throw 'No band with that id';
+    //questionDetail.find
+    if (answerData === null) throw 'No question with that id';
     return answerData;
 }
 
-async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues ){
+async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues,player ){
     if(questionId || answerID || isSiglePlayer){
     //if(answerID !=null){
 
@@ -53,7 +53,9 @@ async function saveAnswers(questionId, answerID, isSiglePlayer,nextQues ){
     let newAnw={
         questionId : questionId,
         answerID : answerID,
-        isSiglePlayer : isSiglePlayer
+        isSiglePlayer : isSiglePlayer,
+        player:player,
+        counted:false
     };
     const insertInfo = await playerAnsCol.insertOne(newAnw);
     if (insertInfo.insertedCount === 0) throw 'Could not add ans';

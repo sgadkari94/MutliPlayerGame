@@ -6,7 +6,7 @@ const playerAnsCollection = collection.playerAnswers;
 const gameSummmaycollection = collection.gameSummary;
 const scoreCollection = collection.score;
 
-async function generateResult(){
+async function generateResult(player){
 
     //let gameDay = new Date().getDate();
     let gameDay = getTodaysDate();
@@ -14,7 +14,7 @@ async function generateResult(){
     const resultVal = await playerAnsCollection();
     const ansVal = await ansCollection();
     const quesVal = await quesCollection();
-    const resultdata = await resultVal.find({}).toArray();
+    const resultdata = await resultVal.find({'player': player, 'counted':false}).toArray();
     const answerData = await ansVal.find({}).toArray();
     const quesdata = await quesVal.find({}).toArray();
     const resultSet = {};
@@ -26,13 +26,13 @@ async function generateResult(){
                 //if pljayer has coorect question he will get +20.
                 if(answerData[k].isCorrect == 1){
                     resultSet["Question No :"+ resultdata[j].questionId] = "+20";
-                    addGameSummary("priya",level, resultdata[j].questionId, "+20", gameDay);
+                    addGameSummary(player,level, resultdata[j].questionId, "+20", gameDay, resultdata[j]._id);
                 }
                 else  {
 
                     //if pljayer has wrong question he will get -5.
                     resultSet["Question No :"+ resultdata[j].questionId] = "-5";
-                    addGameSummary("priya",level,resultdata[j].questionId, "-5",gameDay);
+                    addGameSummary(player,level,resultdata[j].questionId, "-5",gameDay,resultdata[j]._id);
                 }
 
                 
@@ -43,7 +43,7 @@ async function generateResult(){
     {
         resultSet["Question No :"+ resultdata[j].questionId] = "you missed that question";
 
-        addGameSummary("priya",level,resultdata[j].questionId, "0",gameDay);
+        addGameSummary(player,level,resultdata[j].questionId, "0",gameDay, resultdata[j]._id);
     }
 
     }
@@ -52,13 +52,15 @@ async function generateResult(){
 
 }
 
-async function addGameSummary(playerid, level, questionId, marks, timetaken ){
+async function addGameSummary(player, level, questionId, marks, timetaken, sumId ){
 
-    if (!playerid || !level || !questionId || !marks || !timetaken) throw 'input data is provided';
+    if (!player || !level || !questionId || !marks || !timetaken) throw 'input data is provided';
+
     const gameSumVal = await gameSummmaycollection();
+    const playerAns = await playerAnsCollection();
 
     let newSummary = {
-        playerid: "priya", 
+        playerid:player , 
         questionId: questionId,
         level:level,
         marks:marks,
@@ -68,21 +70,36 @@ async function addGameSummary(playerid, level, questionId, marks, timetaken ){
     if (insertInfo.insertedCount === 0) throw 'Could not add band';
 
     const newId = insertInfo.insertedId;
+
+    // const getDetails = await playerAns.findOne({answerID : String(ansId)});
+    // console.log(getDetails);
+
+    if(typeof sumId !="object")
+    {
+        sumId = ObjectId.createFromHexString(sumId);
+    }
+   
+    const updatedInfo = await playerAns.updateOne({_id:sumId }, { $set: { counted: true} })
+     if(updatedInfo.modifiedCount === 0){
+         throw `could not update question ${question_id}`;
+     }
+
     console.log(newId);
 }
 
-async function getResult(){
+async function getResult(player){
 
     const gameSumVal = await gameSummmaycollection();
-    const gameSummary = await gameSumVal.find({playerid :"priya" }).toArray();
+    const gameSummary = await gameSumVal.find({playerid :player }).toArray();
     if (gameSummary === null) throw 'No band with that id';      
     return gameSummary;
     
 }
 
-async function countTotalMarks(){
+async function countTotalMarks(player){
+    console.log(player);
     const gameSumVal = await gameSummmaycollection();
-    const result = await gameSumVal.find({playerid :"priya" }).toArray();
+    const result = await gameSumVal.find({playerid : player }).toArray();
 
     let totalMarks = 0;
     for(let i =0; i<=result.length-1; i++){
@@ -92,15 +109,24 @@ async function countTotalMarks(){
            if(sign === "+"){
              str = result[i].marks.replace("+","");
             totalMarks = parseInt(totalMarks) + parseInt(str);
+            console.log(result[i]._id);
+            await clearPlayerSummary(result[i]._id);
            }
            else if(sign === "-"){
             str = result[i].marks.replace("-","");
             totalMarks = parseInt(totalMarks) - parseInt(str);
+            console.log(result[i]._id);
+            await clearPlayerSummary(result[i]._id);
            }
+       }
+       else if(result[i].marks == "0"){
+       console.log(result[i]._id);
+       await clearPlayerSummary(result[i]._id);
        }
     }
 
-    await addGameScore("priya",totalMarks,getTodaysDate());
+    await addGameScore(player,totalMarks,getTodaysDate());
+
     console.log(totalMarks);
     return totalMarks;
 }
@@ -120,7 +146,7 @@ async function addGameScore(playerid,totalMarks, gameDay ){
     const gameScoreVal = await scoreCollection();
 
     let newScore = {
-        playerid: "priya", 
+        playerid: playerid, 
         totalMarks:totalMarks,
         gameDay:gameDay
     };
@@ -130,6 +156,21 @@ async function addGameScore(playerid,totalMarks, gameDay ){
     const newId = insertInfo.insertedId;
     console.log(newId);
 }
+
+async function clearPlayerSummary(playerSumId){
+
+    const gameSumVal = await gameSummmaycollection();
+    console.log(playerSumId);
+    if(typeof playerSumId !="object"){
+        playerSumId = ObjectId.createFromHexString(playerSumId);
+    }
+console.log("i am here");
+    const playerSummary = await gameSumVal.removeOne({_id:playerSumId})
+    if (playerSummary.deletedCount === 0) {
+        throw `Could not remove player ${player}`;
+    }
+    console.log("delete done");
+} 
 
 module.exports = {
     generateResult,

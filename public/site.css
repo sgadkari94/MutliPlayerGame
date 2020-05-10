@@ -1,15 +1,33 @@
 .error{
     color: red;
+    word-wrap: break-word;
+    font-size: smaller;
     font-weight: bold;
 }
 
+.success{
+    color: green;
+    font-weight: bold;
+    font-size: small;
+}
+.errorText{
+    /* word-wrap: break-word !important; */
+    word-break: break-all !important;
+    display: block;
+
+}
 .preScore{
     color: rgba(40, 167, 69, 0.25);
     font-weight: bold;
 }
 
 a{
-    color: #fff;
+    /* color: #fff; */
+    /* color: rgba(40, 167, 69, 0.25); */
+}
+
+.abcRioButtonLightBlue{
+margin-top: 10%;
 }
 
 .Question{
@@ -48,13 +66,13 @@ a{
      /* display: inline-block; 
     vertical-align: middle; */
     background-color:#77cc6d ;
-    opacity: .75;
+    /* opacity: .75; */
 }
 .btn-primary{
     color:#fff;
     background-color: #77cc6d;
     border-color: #77cc6d;
-    opacity: .75;
+    /* opacity: .75; */
 
 }
 .form-control:focus {
@@ -90,10 +108,10 @@ a{
     -moz-box-shadow: 0 -2px rgba(0,0,0,.1) inset;
     -webkit-box-shadow: 0 -2px rgba(0,0,0,.1) inset;
     -o-box-shadow: 0 -2px rgba(0,0,0,.1) inset;
-    transition: opacity .3s linear;
-    -moz-transition: opacity .3s linear;
+    /* transition: opacity .3s linear; */
+    /* -moz-transition: opacity .3s linear;
     -webkit-transition: opacity .3s linear;
-    opacity: .75;
+    opacity: .75; */
     border: none;
     letter-spacing: 1;
 }
@@ -102,7 +120,7 @@ ul li{
 }
 .button:hover,.button:focus{
     outline: none;
-    opacity: 1;
+    /* opacity: 1; */
 }
 .submit{
     background: #77cc6d;
@@ -173,6 +191,12 @@ header{
 header h2{
     margin: 0;
 }
+
+.h2Class{
+    margin: 0;
+    font-size: medium;
+    font-weight: bold;
+}
 .card{
     background: #fffdfd;
     width: 100%;
@@ -238,7 +262,8 @@ h4{
     width: 49%;
     display: inline-block;
     margin-top: 12px;
-    color: #848282;
+    /* color: #848282; */
+    color:#777575;
     font-size: 12px;
 }
 .card ul{ padding-left: 5px;}
@@ -299,7 +324,8 @@ h4{
   }
   .leftnav li{
     padding:8px 12px;
-    color: #848282;
+    /* color: #848282; */
+    color: #777575;
 
 }
 .leftnav li span{
@@ -325,4 +351,95 @@ h5{
 }
 .thumbnail img{
     max-width: 120px;;
+}
+
+.card.playerReg{
+    width: 400px;
+    height: 540px;
+}
+
+.card.forgetPass{
+    width: 350px;
+    /* height: 450px; */
+}
+
+.imgSize{
+    margin-top:2.5px;
+    height: 47.5px;
+    width: 60px;
+    margin-bottom: 1px;
+}
+
+.result{
+    width: 30%;
+    display: inline;
+    text-align: center;
+}
+
+.newGame{
+width: 70%;
+display: inline;
+text-align: center;
+}
+
+.new{
+    float: left;
+    margin-left: 2%;
+}
+
+/*************** winnerdashboard***************/
+.winnersDashboard{
+    margin: 0 auto;
+    width: 450px;
+}
+.listMain{
+    display: flex;
+}
+.trophyImgSize{
+    height: 80px;
+    width: 70px;
+  
+}
+.userImgSize{
+    height: 80px;
+    width: 80px;
+    margin-top: 5px;
+}
+.winnerList{
+    margin: 10px 0;
+}
+.winnerdetails{
+    flex: 0 0 61%;
+    padding-left: 20px;
+    width: 40%;
+    display: inline;
+    text-align: center;
+    float: left;
+
+}
+.startGameBtn{
+    text-align: right;
+}
+
+.winner{
+    width: 30%;
+    display:inline;
+    text-align: center;
+    float:left;
+}
+
+.trophy{
+    width: 30%;
+    display:inline;
+    text-align: center;
+    float: right;
+
+}
+
+.winnerli{
+    width: 100% !important;
+}
+
+.bodyImg{
+    background-image: url("/image/vector-realistic-isolated-neon-sign-600w-1192029763.webp");
 }

@@ -12,12 +12,13 @@ let firstTimePlayer;
 //let totalTime = new Date();
 router.get("/", async (req, res,next) => {
   try {
-
+if(req.session.user){
+  const player = req.session.user;
   const totalReq = await questionData.getQuestions();
 
   //for getting players previous game detail.
-  const gameDetails = await scoreData.getScore();
-  if(gameDetails != null){
+  const gameDetails = await scoreData.getScore(player);
+  if(gameDetails.length > 0){
     firstTimePlayer = "no"
   }
   else{
@@ -31,25 +32,24 @@ router.get("/", async (req, res,next) => {
         {
           const question = await questionData.getQuestionsbyId(totalRequests);
           const answer = await questionData.getAnswers(question.question_id);
-          res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1, 'firstTimePlayer':firstTimePlayer, 'gameDetails':gameDetails});
+          res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1, 'firstTimePlayer':firstTimePlayer, 'gameDetails':gameDetails,'user':player, 'reqNo':totalRequests});
           totalRequests ++;
         }
         else{
-          // const result = await resultData.generateResult();
-          // console.log(result);
           const getResult = await resultData.getResult();
           const totalMarks = await resultData.countTotalMarks();
-          //res.redirect("/result");
+          req.session.destroy();
+          res.clearCookie('AuthCookie');
           res.render('MultiPlayerGame/result',{'data':getResult , 'totalMarks':totalMarks});
-          // res.render('MultiPlayerGame/result');
-          // //res.redirect("/result");
-          // //next();
         }
       }
       else{
         res.status(400).render('MultiPlayerGame/error', { 'err': "there is no question in the database. do npm run seed or export files to the database"});
       }
-  } catch (e) {
+  }
+  else
+  res.status(400).render('MultiPlayerGame/login', { 'error': 'please login' });
+ } catch (e) {
     res.status(400).render('MultiPlayerGame/error', { 'err': e });
   }
 });
@@ -57,15 +57,17 @@ router.get("/", async (req, res,next) => {
 //let totalRequests = 0;
 router.post("/", async (req, res,next) => {
     try {
+      if(req.session.user){
+      const player = req.session.user;
       const totalReq = await questionData.getQuestions();
   // for getting previous game details
-      const gameDetails = await scoreData.getScore();
-        if(gameDetails != null){
-          firstTimePlayer = "no"
-        }
-        else{
-          firstTimePlayer = "yes";
-        }
+  const gameDetails = await scoreData.getScore(player);
+  if(gameDetails.length > 0){
+    firstTimePlayer = "no"
+  }
+  else{
+    firstTimePlayer = "yes";
+  }
 
       // for checking if there is any question in database.
       if(totalReq.length > 0 ){
@@ -75,10 +77,10 @@ router.post("/", async (req, res,next) => {
       {
       constQuesId = xss(req.body.question);
       constAnsId = xss(req.body.selcRadio);
-      const saveAns = await questionData.saveAnswers(constQuesId,constAnsId,true,totalRequests);
+      const saveAns = await questionData.saveAnswers(constQuesId,constAnsId,true,totalRequests,player);
       const question = await questionData.getQuestionsbyId(totalRequests);
       const answer = await questionData.getAnswers(question.question_id);
-      res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1, 'firstTimePlayer':firstTimePlayer, 'gameDetails':gameDetails});
+      res.render('MultiPlayerGame/dashboard', { 'question': question, 'answers':answer, 'question_no':totalRequests+1, 'firstTimePlayer':firstTimePlayer, 'gameDetails':gameDetails, 'user':player, 'reqNo':totalRequests});
       totalRequests++;
       }
 
@@ -86,30 +88,35 @@ router.post("/", async (req, res,next) => {
       else if(totalRequests == totalReq.length){
         constQuesId = xss(req.body.question);
         constAnsId = xss(req.body.selcRadio);
-        const saveAns = await questionData.saveAnswers(constQuesId,constAnsId,true,totalRequests);
+        const saveAns = await questionData.saveAnswers(constQuesId,constAnsId,true,totalRequests,player);
         totalRequests++;
-        const result = await resultData.generateResult();
+        const result = await resultData.generateResult(player);
 
-        const getResult = await resultData.getResult();
-        console.log(getResult);
-        const totalMarks = await resultData.countTotalMarks();
-        //res.redirect("/result");
+        const getResult = await resultData.getResult(player);
+        console.log(player);
+         const totalMarks = await resultData.countTotalMarks(player);
         totalRequests = 0;
+       // const totalMarks  = 0;
+        req.session.destroy();
+        res.clearCookie('AuthCookie');
         res.render('MultiPlayerGame/result',{'data':getResult , 'totalMarks':totalMarks});
       }
       else{
-        const getResult = await resultData.getResult();
+        const getResult = await resultData.getResult(player);
         console.log(getResult);
-        const totalMarks = await resultData.countTotalMarks();
+        // const totalMarks = await resultData.countTotalMarks(player);
+        const totalMarks  = 0;
         console.log(totalMarks);
         totalRequests = 0;
+        req.session.destroy();
+        res.clearCookie('AuthCookie');
         res.render('MultiPlayerGame/result',{'data':getResult , 'totalMarks':totalMarks});
       }
     } 
     else{
       res.status(400).render('MultiPlayerGame/error', { 'err': "there is no question in the database. do npm run seed or export files to the database" });
     }
-  }catch (e) {
+  }}catch (e) {
       res.status(400).render('MultiPlayerGame/error', { 'err': e });
     }
   });
