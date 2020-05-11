@@ -4,6 +4,7 @@ const registerData = require("./register");
 const loginData = require("./login");
 const forgetPassword = require("./forgetPassword");
 const leaderBoradData = require("./leaderBoard");
+const logoutData = require("./logout")
 // const path = require('path');
 const xss = require("xss");
 
@@ -20,6 +21,8 @@ app.use("/leaderBoard",leaderBoradData);
 app.use("/dashboard", questionRoutes);
 
 app.use("/result", resultRoutes);
+
+app.use("/logout", logoutData)
 
 app.get('/', (req, res) => {
     //res.sendFile(path.resolve('public/index.html'));
