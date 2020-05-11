@@ -24,6 +24,11 @@
                 </div>
              </div>
              <ul class="leftnav">
+                 <li>
+                     <div>
+                    want to log out? <a href="/logout">logout</a>`
+                </div>
+                 </li>
                  <li><span><i class="glyphicon glyphicon-user"></i></span>Name:{{user}}</li>
                  <li><span><i class="glyphicon glyphicon-asterisk"></i></span>New Playe: {{firstTimePlayer}}</li>
              </ul>
@@ -51,9 +56,11 @@
                           </a>
                     </div>
                     <div class="col-md-9">
-                        <h4>
+                        {{!-- <h4> --}}
+                            <div class="h4Div">
                             Quiz Details
-                        </h4>
+                            </div>
+                        {{!-- </h4> --}}
                         <ul class="gameInfo">
                             <li>* You will get 20 for every right answer </li>
                             <li>* You will get 0 for no answer</li>
@@ -70,10 +77,10 @@
                     <span class="pull-left labelBorder">Question {{question_no}}</span>
                     <input type="hidden" id="quseNo" name="quseNo" value={{reqNo}}>
                     <div class="clearfix"></div>
-                    <h5>
+                    <div class="h5Div">
                     <input type="hidden" id="questionText" name="question" value={{question.question_id}}>
                      <label> Q. {{question.question}}</label>
-                    </h5>  
+                    </div>  
                     <div class="Answer">
                         <span>Answer Choices</span>
                     </div>
@@ -93,7 +100,6 @@
                     </div>
                     </div>                    
                  </div>
-               
             </div>
             <div class="NextBtn pull-right">
                 {{!-- <button type="button" class="button create">Previous</button> --}}
@@ -105,7 +111,8 @@
     <div class="col-md-2">
       <div class="col-md-12">
             <div id="clockdiv"> 
-                 <h4>Countdown Clock</h4> 
+                 {{!-- <h4>Countdown Clock</h4>  --}}
+                 <div class="h4Div">Countdown Clock</div>
             <div class="col-md-6 divblock"> 
                 <span class="minutes" id="minute"></span> 
                 <div class="smalltext">M</div> 
@@ -120,7 +127,7 @@
     </div>
     </div>
 </div>
-{{!-- <script src="/countdown.js"></script> --}}
+<script src="/countdown.js"></script>
 </body>
 
 

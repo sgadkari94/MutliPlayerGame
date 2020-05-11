@@ -4,6 +4,7 @@ const registerData = require("./register");
 const loginData = require("./login");
 const forgetPassword = require("./forgetPassword");
 const leaderBoradData = require("./leaderBoard");
+const logoutData = require("./logout");
 // const path = require('path');
 const xss = require("xss");
 
@@ -14,6 +15,8 @@ app.use("/register", registerData);
 app.use("/login", loginData);
 
 app.use("/forgetPassword",forgetPassword);
+
+app.use("/logout",logoutData);
 
 app.use("/leaderBoard",leaderBoradData);
 

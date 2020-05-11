@@ -19,7 +19,7 @@
 				<div class="card-wrapper">
 					<div class="card fat forgetPass">
 						<div class="card-body">
-							<h4 class="card-title">Login</h4>
+							<div class="card-title txtLabel h4Div">Login</div>
 							<form id="loginForm" action="/login" method="Post" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<div class = 'error'>
@@ -27,12 +27,12 @@
 											<p class="errorText">{{error}}</p>
 										{{/if}}
 									</div>
-									<label for="userName">User Name</label>
+									<label class="txtLabel" for="userName">User Name</label>
 									<input id="userName" class="form-control" name="userName" value={{data.userName}}>
 								</div>
 
 								<div class="form-group">
-									 <label for="password">Password </label> 
+									 <label class="txtLabel" for="password">Password </label> 
 										<a href="forgetPassword" class="float-right forgetPass">
 											Forgot Password?
 										</a>
@@ -43,7 +43,7 @@
 										Login
 									</button>
 									<div class="mt-4 text-center">
-									Don't have an account? <a href="register">Create One</a>
+									<span class="txtLabel">Don't have an account?</span><a href="register" class="forgetPass">Create One</a>
 								    </div>
 									 <div class="g-signin2" data-onsuccess = "onSignIn"></div>
 								</div>
