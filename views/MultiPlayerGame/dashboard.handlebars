@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>game dashboard</title>
+<title>Game Dashboard</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link href="site.css" type="text/css" rel="stylesheet" />
@@ -20,23 +20,23 @@
                     <span class="UserIco"><i class="glyphicon glyphicon-user" ></i></span>
                 </div>
                 <div class="col-md-9">
-                    <label>Welcome {{user}}</label>
-                    {{!-- <button type="button" class="button submit">Edit Profile</button> --}}
+                    <label>Welcome: {{user}}</label>
                 </div>
              </div>
-             {{!-- <button type="button" id="btnNewGame" type="submit" class="button create"><span class="glyphicon glyphicon-plus-sign"></span>Begin New Quiz</button> --}}
              <ul class="leftnav">
-                 <li><span><i class="glyphicon glyphicon-user"></i></span>Name:UserName</li>
+                 <li><span><i class="glyphicon glyphicon-user"></i></span>Name:{{user}}</li>
                  <li><span><i class="glyphicon glyphicon-asterisk"></i></span>New Playe: {{firstTimePlayer}}</li>
-                 {{!-- <li><span><i class="glyphicon glyphicon-list-alt"></i></span>Previous Score:0</li> --}}
              </ul>
-             <ul class="leftnav">
-                 <li class="preScore"><span><i class="glyphicon glyphicon-pencil"></i></span>All Previous Score</li>
-                    {{#each gameDetails}}
+             {{!-- <span> All Previous Score</span> --}}
+              <div class="scoreDiv"> All Previous Score</div>
+             <ul class="leftnav preScore">
                     <li>
-                        <span>Date: {{this.gameDay}} Score: {{this.totalMarks}}</span>
+                        {{#each gameDetails}}
+                        <div>
+                        <span>Date: {{this.gameDay}}</span>Score: {{this.totalMarks}}
+                        </div>
+                        {{/each}}
                     </li>
-                    {{/each}}
              </ul>
             
         </div>
@@ -54,12 +54,12 @@
                         <h4>
                             Quiz Details
                         </h4>
-                        <ul>
+                        <ul class="gameInfo">
                             <li>* You will get 20 for every right answer </li>
                             <li>* You will get 0 for no answer</li>
                             <li>* You will get -5 for wrong answer</li>
                         </ul>
-                        <hr />
+                        {{!-- <hr /> --}}
                     </div>
                 </div>
             </div>
@@ -79,15 +79,16 @@
                     </div>
                     <div>
                     <ul class="ulClass">
-                        	{{#each answers}}
                         <li class="liClass">
+                            {{#each answers}}
+                            <div>
                             <label class="radioMain">{{this.answer}}
-                                {{!-- <input class="rdClass" type="radio" checked="checked" name="selcRadio"  --}}
                                 <input class="rdClass" type="radio" name="selcRadio" value={{this._id}}>
                                 <span class="checkmark"></span>
                               </label>
+                              </div>
+                              {{/each}}
                         </li>
-                        {{/each}}
                     </ul>
                     </div>
                     </div>                    
@@ -116,11 +117,10 @@
             </div> 
             <div id="expired" class="expired" hidden></div>
       </div>
-        {{!-- Right Sec --}}
     </div>
     </div>
 </div>
-<script src="/countdown.js"></script>
+{{!-- <script src="/countdown.js"></script> --}}
 </body>
 
 

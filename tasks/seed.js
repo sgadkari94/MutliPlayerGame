@@ -65,6 +65,34 @@ const main = async () => {
           const thirdAnswer4 = await answer.addAnswer(
             "3","All of the above.",0
           );
+
+          // Insert 4th question and answer
+      const fourthQuestion = await question.addQuestion(
+        "4", " The external JavaScript file must contain <script> tag. True or False?" ,'2',[]);
+  
+          const fourthdAnswer1 = await answer.addAnswer(
+            "4","TRUE",0
+          );
+          const fourthAnswer2 = await answer.addAnswer(
+            "4","FALSE",1
+          );
+
+            // Insert 5th question and answer
+        const FifQuestion = await question.addQuestion(
+        "5", "What is the correct syntax to change the content of the following html code:                                                                  <p id='geek' GeeksforGeeks</p>" ,'3',[]);
+  
+          const FifAnswer1 = await answer.addAnswer(
+            "5","document.getElement(“geek”).innerHTML=”I am a Geek”;",0
+          );
+          const FifAnswer2 = await answer.addAnswer(
+            "5","document.getElementById(“geek”).innerHTML=”I am a Geek”;",1
+          );
+          const FifAnswer3 = await answer.addAnswer(
+            "5","document.getId(“geek”)=”I am a Geek”;",0
+          );
+          const FifAnswer4 = await answer.addAnswer(
+            "5","document.getElementById(“geek”).innerHTML=I am a Geek;",0
+          );
     await db.serverConfig.close();
 };
 

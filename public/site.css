@@ -21,17 +21,12 @@
     font-weight: bold;
 }
 
-a{
-    /* color: #fff; */
-    /* color: rgba(40, 167, 69, 0.25); */
-}
-
 .abcRioButtonLightBlue{
 margin-top: 10%;
 }
 
 .Question{
-      margin-left: 1%;
+      margin-left: 15px;
   }
 .expired{
     color: red;
@@ -39,9 +34,10 @@ margin-top: 10%;
     font-size:large;
     
 }
- ul.ulClass li{
+ ul.ulClass li>div{
       display:inline-block !important ;
       width:49% !important;
+      position: relative;
   }
 
   #clockdiv{ 
@@ -65,30 +61,38 @@ margin-top: 10%;
      width: 50px; 
      /* display: inline-block; 
     vertical-align: middle; */
-    background-color:#77cc6d ;
+    /* background-color:#77cc6d ; */
+    background-color: #248900;
     /* opacity: .75; */
 }
 .btn-primary{
     color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
+    /* background-color: #77cc6d;
+    border-color: #77cc6d; */
+    background-color: #248900;
+    border-color:#248900;
     /* opacity: .75; */
 
 }
 .form-control:focus {
-    border-color: #77cc6d;
+    /* border-color: #77cc6d; */
+    border-color:#248900;;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 .btn-primary:hover{
     color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
+    /* background-color: #77cc6d;
+    border-color: #77cc6d; */
+    background-color: #248900;
+    border-color:#248900;
 }
 .btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle{
     color:#fff;
-    background-color: #77cc6d;
-    border-color: #77cc6d;
+    /* background-color: #77cc6d;
+    border-color: #77cc6d; */
+    background-color: #248900;
+    border-color:#248900;
 }
 .divButton{
     margin-top: 20px;
@@ -123,7 +127,8 @@ ul li{
     /* opacity: 1; */
 }
 .submit{
-    background: #77cc6d;
+    /* background: #77cc6d; */
+    background:#248900;
     min-width: 95px;
 }
 .row{
@@ -143,7 +148,8 @@ ul li{
     zoom: 1.1;
 } */
 .UserIco{
-    border: 1px solid #77cc6d;
+    /* border: 1px solid #77cc6d; */
+    border: 1px solid #248900; 
     padding: 5px;
     height: 45px;
     width: 45px;
@@ -202,12 +208,12 @@ header h2{
     width: 100%;
     display: block;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 14px;
     box-shadow: 0px 0px 4px #bbb9b9;
 }
 .card:first-child{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .thumbnail{
     background: #eaeaea;
@@ -237,6 +243,7 @@ h4{
     border-bottom: 1.5px solid #ccc;
     position: relative;
     margin: 20px 0 10px 0;
+    color: #767676 ;
 }
 .Answer span{
     position: absolute;
@@ -259,7 +266,7 @@ h4{
 }
 .card li{
     list-style: none;
-    width: 49%;
+    width: 100%;
     display: inline-block;
     margin-top: 12px;
     /* color: #848282; */
@@ -299,7 +306,8 @@ h4{
     background-color: #ccc;
   }
   .radioMain input:checked ~ .checkmark {
-    background-color: #77cc6d;
+    /* background-color: #77cc6d; */
+    background-color: #248900;
   }
   .checkmark:after {
     content: "";
@@ -443,4 +451,36 @@ text-align: center;
 .bodyImg{
     background-image: url("/image/ugur-akdemir-5X39cfzKX3o-unsplash\ \(1\).jpg");
     /* opacity: 50%; */
+    background-size: cover;
+    background-position: center;
+}
+
+.scoreDiv{
+    padding-left: 15px !important;
+    font-weight: bold;
+
+}
+
+ul.gameInfo li{
+    color: #767676;
+    font-weight: bold;
+}
+
+.forgetPass{
+    color: #0071ec;
+}
+
+ul.leftnav li div{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+ul.leftnav li div span{
+    margin-right: 10px;
+}
+.preScore{
+    margin-top: 0px;
+}
+.txtLabel{
+    color: black;
 }

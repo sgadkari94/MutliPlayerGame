@@ -15,7 +15,9 @@
     "express-handlebars": "^4.0.3",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
+    "localStorage": "^1.0.4",
     "mongodb": "^3.5.7",
+    "node-sessionstorage": "^1.0.0",
     "socket.io": "^2.3.0",
     "xss": "^1.0.6"
   },

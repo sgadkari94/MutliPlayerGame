@@ -8,7 +8,7 @@ let submitBtn= document.getElementById('btnSubmit');
 let btnNewGame = document.getElementById('btnNewGame');
 let quesNo = document.getElementById('quseNo').value;
 const countdown = window.addEventListener('load', (event) => {
-  if(quesNo < 3){
+  if(quesNo < 5){
     // alert(quesNo);
 // var deadline = new Date("April 19, 2020 21:10:05").getTime(); 
 // var deadline = new Date(Date.now() + (1 * 60 * 1000));
@@ -41,7 +41,7 @@ btnNewGame.addEventListener('click',(event)=>{
 //location.reload();
 })
   
-if(quesNo<3){
+if(quesNo<5){
   setTimeout(countdown, 1000);
 }
 

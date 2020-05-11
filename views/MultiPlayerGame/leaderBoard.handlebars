@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Demo</title>
+<title>Leader Board</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 <link href="site.css" type="text/css" rel="stylesheet" />
 </head>
@@ -17,8 +17,8 @@
     <div class="startGameBtn"> <button type="submit" class="button submit">Start Your Game</button></div>
    </form>
     <ul>
-        {{#each winnerData}}
             <li class="winnerli">
+                {{#each winnerData}}
                 <div class="card winnerList">
                     <div class="listMain">
                                 <div class="winner"><img src="/image/userImg2.png" alt="" class="userImgSize"></div>
@@ -30,8 +30,8 @@
                                 <div class="trophy"><img src="/image/trophy-img1.png" alt="" class="trophyImgSize"></div>
                     </div>
                 </div>
-            </li>
-        {{/each}}
+                 {{/each}}
+            </li>      
     </ul>
 </div>
 </body>

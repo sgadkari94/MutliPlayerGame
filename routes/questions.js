@@ -40,6 +40,7 @@ if(req.session.user){
           const totalMarks = await resultData.countTotalMarks();
           req.session.destroy();
           res.clearCookie('AuthCookie');
+          totalRequests = 0;
           res.render('MultiPlayerGame/result',{'data':getResult , 'totalMarks':totalMarks});
         }
       }

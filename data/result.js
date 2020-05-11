@@ -142,7 +142,7 @@ async function countTotalMarks(player){
 }
 async function addGameScore(playerid,totalMarks, gameDay ){
 
-    if (!playerid || !totalMarks || !gameDay) throw 'input data is provided';
+    if (!playerid || !gameDay) throw 'input data is not provided';
     const gameScoreVal = await scoreCollection();
 
     let newScore = {

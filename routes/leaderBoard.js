@@ -7,7 +7,8 @@ const xss = require("xss");
 
 router.post("/", async (req, res,next) => {
     try {
-    if(req.session.user){
+        console.log(req.body['player']);
+    if(req.session.user || req.body['player']){
        const getLeaderBoardData = await score.getTopPlayer();
        console.log(getLeaderBoardData);
        res.render("MultiPlayerGame/leaderBoard",{'winnerData':getLeaderBoardData});
@@ -23,7 +24,7 @@ router.post("/", async (req, res,next) => {
 
 router.get("/", async (req, res,next) => {
     try {
-        if(req.session.user){
+        if(req.session.user || req.body['player']){
        const getLeaderBoardData = await score.getTopPlayer();
        console.log(getLeaderBoardData);
        res.render("MultiPlayerGame/leaderBoard",{'winnerData':getLeaderBoardData});

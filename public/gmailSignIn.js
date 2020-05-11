@@ -2,15 +2,22 @@ let loginForm = document.getElementById('loginForm');
 let btnLogin = document.getElementById('btnLogin');
 
 function onSignIn(googleUser){
-    let profile = googleUser.getBasicProfile;
-    alert(googleUser.Pt);
-    alert(googleUser.Pt.yu);
-    //let image = profile.getImageUrl();
-    let emailAddress = googleUser.Pt.yu;
-    let name = googleUser.Pt.Ad
-    alert(emailAddress);
-    alert(name);
+    let profile = googleUser.getBasicProfile();
+    let name = profile.getName();
+    let email = profile.getEmail();
+    localStorage.setItem('player', name);
 
-    loginForm.submit();
+    var url = '/leaderBoard';
+   $.ajax({
+    url: url,
+    type: 'POST',
+    data: {'player': name },
+    success: function(html)
+    { 
+ },
+
+});
+
+    // loginForm.submit()
 
 }

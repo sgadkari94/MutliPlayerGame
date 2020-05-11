@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Kodinger">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>My Login Page</title>
+	<title>Login Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="site.css">
 
 <script src="https://apis.google.com/js/platform.js" async defer></script>
- {{!-- <meta name="google-signin-client_id" content="66110250402-v3igt2ch7cenekbt04g25v94065c6kth.apps.googleusercontent.com"> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <meta name="google-signin-client_id" content="446457719578-79ej4j039phvviac052di40ugqh5q572.apps.googleusercontent.com">
 </head>
 <body class="my-login-page bodyImg">
@@ -20,8 +20,6 @@
 					<div class="card fat forgetPass">
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
-							{{!-- <form id="loginForm" action="/dashboard" method="Post" class="my-login-validation" novalidate=""> --}}
-							{{!-- <form id="loginForm" action="/leaderBoard" method="Post" class="my-login-validation" novalidate=""> --}}
 							<form id="loginForm" action="/login" method="Post" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<div class = 'error'>
@@ -30,15 +28,14 @@
 										{{/if}}
 									</div>
 									<label for="userName">User Name</label>
-									<input id="userName" type="userName" class="form-control" name="userName" value={{data.userName}}>
+									<input id="userName" class="form-control" name="userName" value={{data.userName}}>
 								</div>
 
 								<div class="form-group">
-									 <label for="password">Password
-										<a href="forgetPassword" class="float-right">
+									 <label for="password">Password </label> 
+										<a href="forgetPassword" class="float-right forgetPass">
 											Forgot Password?
 										</a>
-									</label> 
 									<input id="password" type="password" class="form-control" name="password">
 								</div>
 								<div class="form-group m-0">

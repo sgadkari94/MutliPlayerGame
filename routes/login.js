@@ -4,6 +4,8 @@ const data = require("../data");
 const regPlayer = data.register;
 const path = require('path');
 const xss = require("xss");
+const storage = require('node-sessionstorage');
+const localStorage = require("localStorage");
 
 
 router.get("/", async (req, res,next) => {
@@ -16,6 +18,8 @@ router.get("/", async (req, res,next) => {
 })
 router.post("/", async (req, res,next) => {
     try {
+    
+    console.log(localStorage.getItem('player'));
     const userName = xss(req.body['userName']);
     console.log(userName);
     const password = xss(req.body['password']);
