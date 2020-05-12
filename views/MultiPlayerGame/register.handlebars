@@ -16,7 +16,7 @@
 					<div class="card fat playerReg">
 						<div class="card-body">
 							<div class="card-title h4Div">Register</div>
-							<form method="POST" class="my-login-validation" novalidate="">
+							<form method="POST" id = "register-form" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<div class = 'error'>
 										{{#if error}}
@@ -60,5 +60,6 @@
 			</div>
 		</div>
 	</section>
+	<script src='registerValidation.js'></script>
 </body>
 </html>
