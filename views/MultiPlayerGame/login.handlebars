@@ -7,7 +7,8 @@
 	<title>Login Page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="site.css">
-<script src='/public/loginValidation.js'></script>
+
+<script src='/loginValidation.js'></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <meta name="google-signin-client_id" content="446457719578-79ej4j039phvviac052di40ugqh5q572.apps.googleusercontent.com">
@@ -39,7 +40,7 @@
 									<input id="password" type="password" class="form-control" name="password">
 								</div>
 								<div class="form-group m-0">
-									<button id="btnLogin" type="submit" class="btn btn-primary btn-block">
+									<button id="btnLogin" type="submit" class="btn btn-primary btn-block" onclick="loginVal()">
 										Login
 									</button>
 									<div class="mt-4 text-center">
@@ -55,7 +56,6 @@
 			</div>
 		</div>
 	</section>
-	<script src="/loginValidation.js"></script>
 	<script src="/gmailSignIn.js"></script>
 </body>
 </html>
