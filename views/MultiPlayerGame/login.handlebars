@@ -20,7 +20,7 @@
 					<div class="card fat forgetPass">
 						<div class="card-body">
 							<div class="card-title txtLabel h4Div">Login</div>
-							<form id="loginForm" action="/login" method="Post" class="my-login-validation" novalidate="">
+							<form id="loginForm" action="/login" method="Post">
 								<div class="form-group">
 									<div class = 'error'>
 										{{#if error}}
@@ -55,6 +55,7 @@
 			</div>
 		</div>
 	</section>
+	<script src="/loginValidation.js"></script>
 	<script src="/gmailSignIn.js"></script>
 </body>
 </html>
