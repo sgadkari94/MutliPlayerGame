@@ -7,10 +7,13 @@ const xss = require("xss");
 
 router.post("/", async (req, res,next) => {
     try {
-        console.log(req.body['player']);
     if(req.session.user || req.body['player']){
+        if(req.body['player']!=null){
+
+        //setting session from ajax request.
+        req.session.user = req.body['player'];
+        }
        const getLeaderBoardData = await score.getTopPlayer();
-       console.log(getLeaderBoardData);
        res.render("MultiPlayerGame/leaderBoard",{'winnerData':getLeaderBoardData});
     }
     else{
@@ -26,7 +29,6 @@ router.get("/", async (req, res,next) => {
     try {
         if(req.session.user || req.body['player']){
        const getLeaderBoardData = await score.getTopPlayer();
-       console.log(getLeaderBoardData);
        res.render("MultiPlayerGame/leaderBoard",{'winnerData':getLeaderBoardData});
         }
         else{

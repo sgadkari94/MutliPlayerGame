@@ -18,8 +18,11 @@ router.get("/", async (req, res,next) => {
 })
 router.post("/", async (req, res,next) => {
     try {
-    
-    console.log(localStorage.getItem('player'));
+    console.log(req.session.user); 
+    if(req.session.user){
+        res.redirect("/leaderBoard");
+    }
+    else{
     const userName = xss(req.body['userName']);
     console.log(userName);
     const password = xss(req.body['password']);
@@ -32,7 +35,7 @@ router.post("/", async (req, res,next) => {
     // res.redirect("/dashboard");
     else{
         res.render("MultiPlayerGame/login",{'error':"password does not match, please enter right password.",'data':req.body});
-    }
+    }}
 
     }
     catch(e){
